@@ -56,3 +56,15 @@ SELECT customer.id, customer.name, customer.email, orders.orderid, orders.amount
 FROM customer 
 RIGHT JOIN orders ON customer.id = orders.id
 ) as combined_res order by name;
+
+-- cross join
+select customer.*,orders.* from customer cross join orders;
+
+-- self join
+SELECT c1.id AS customer1_id, c1.name AS customer1_name, c2.id AS customer2_id, c2.name AS customer2_name
+FROM customer c1
+JOIN customer c2 ON c1.id != c2.id;
+
+SELECT c1.id AS customer1_id, c1.name AS customer1_name, c2.id AS customer2_id, c2.name AS customer2_name
+FROM customer c1
+JOIN customer c2 ON c1.id != c2.id AND LEFT(c1.name, 1) = LEFT(c2.name, 1);
