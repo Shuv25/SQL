@@ -1,7 +1,6 @@
 
 USE queries;
 
--- Create the Engineering table
 CREATE TABLE Engineerings (
     ProjectID INT PRIMARY KEY,
     ProjectName VARCHAR(100),
@@ -42,3 +41,14 @@ FROM Engineerings;
 
 SELECT Engineerings.ProjectName, Engineerings.Budget, Employees.Name AS LeadEngineer FROM Engineerings
 JOIN Employees ON Engineerings.LeadEngineer = Employees.EmployeeID;
+
+INSERT INTO Engineerings (ProjectID, ProjectName, StartDate, EndDate, LeadEngineer, Budget) VALUES
+('9', 'facebook', '3004-04-03', '3003-09-09', 1, 50000.00);
+
+select *from Engineerings;
+
+select distinct LeadEngineer from Engineerings;
+
+select *from Employees;
+
+select e.Name as EngineerName from Employees as e;
